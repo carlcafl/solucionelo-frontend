@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" ng-app="solucioneloApp">
 
 <head>
 
@@ -25,7 +25,12 @@
 	rel="stylesheet" type="text/css">
 <link
 	href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic"
-	rel="stylesheet" type="text/css">
+		rel="stylesheet" type="text/css">
+	
+	<!-- Angular JavaScript -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.5/angular.min.js"></script>
+	<script src="assets/js/app.js"></script>
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -52,7 +57,7 @@
 
 </head>
 
-<body id="page-top" class="index">
+<body id="page-top" class="index" ng-controller="RegistrationCtrl">
 	<!-- Google Tag Manager -->
 	<noscript>
 		<iframe src="//www.googletagmanager.com/ns.html?id=GTM-NLRN35"
@@ -247,14 +252,14 @@
 				<div class="col-lg-8 col-lg-offset-2">
 					<!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
 					<!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-					<form name="sentMessage" id="contactForm" novalidate>
+					<form name="sentMessage" id="contactForm">					
 						<div class="row control-group">
 							<div
 								class="form-group col-xs-12 floating-label-form-group controls">
 								<label>Nombre</label> <input type="text" class="form-control"
 									placeholder="Nombre" id="name" required
 									data-validation-required-message="Please enter your name.">
-								<p class="help-block text-danger"></p>
+								<p class="help-block text-danger">{{message}}</p>
 							</div>
 						</div>
 						<div class="row control-group">
@@ -276,6 +281,11 @@
 								<p class="help-block text-danger"></p>
 							</div>
 						</div>
+						<div class="form-group form-group col-xs-12 floating-label-form-group controls">
+							<label>Servicio que ofrezco</label> <select class="form-control" placeholder="Servicio que ofrezco" ng-model="offeredServices" ng-options="service.id as service.name for service in services">
+							</select>
+							<p class="help-block text-danger"></p>
+						</div>				
 						<br>
 						<div id="success"></div>
 						<div class="row">
