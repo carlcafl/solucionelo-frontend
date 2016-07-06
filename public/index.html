@@ -255,43 +255,91 @@
 					<form name="sentMessage" id="contactForm">					
 						<div class="row control-group">
 							<div
-								class="form-group col-xs-12 floating-label-form-group controls">
-								<label>Nombre</label> <input type="text" class="form-control"
-									placeholder="Nombre" id="name" required
-									data-validation-required-message="Please enter your name.">
-								<p class="help-block text-danger">{{message}}</p>
+								class="form-group col-xs-6 controls">
+								<label>Tipo de Identificaci&oacute;n</label><br>
+								<select class="input-lg" ng-model="user.idType" ng-options="idType.id as idType.name for idType in idTypes"></select>
+								<p class="help-block text-danger"></p>
 							</div>
-						</div>
-						<div class="row control-group">
 							<div
-								class="form-group col-xs-12 floating-label-form-group controls">
-								<label>E-mail</label> <input type="email" class="form-control"
-									placeholder="E-mail" id="email" required
-									data-validation-required-message="Please enter your email address.">
+								class="form-group col-xs-6 controls">
+								<label>N&uacute;mero de identificaci&oacute;n</label> <input type="text" ng-model="user.idNumber" class="form-control input-lg"
+									placeholder="N&uacute;mero de identificaci&oacute;n" id="idNumber" required
+									data-validation-required-message="Por favor digite su tipo de identificación.">
 								<p class="help-block text-danger"></p>
 							</div>
 						</div>
 						<div class="row control-group">
 							<div
-								class="form-group col-xs-12 floating-label-form-group controls">
+								class="form-group col-xs-6 controls">
+								<label>Nombre</label> <input type="text" class="form-control input-lg"
+									placeholder="Nombre" id="firstName" ng-model="user.firstName" required
+									data-validation-required-message="Por favor digite su nombre.">
+								<p class="help-block text-danger"></p>
+							</div>
+							<div
+								class="form-group col-xs-6 controls">
+								<label>Apellidos</label> <input type="text" class="form-control input-lg"
+									placeholder="Apellidos" id="lastName" ng-model="user.lastName" required
+									data-validation-required-message="Por favor digite sus apellidos.">
+								<p class="help-block text-danger"></p>
+							</div>
+						</div>
+						<div class="row control-group">
+							<div
+								class="form-group col-xs-12 controls">
 								<label>Tel&eacute;fono</label> <input type="tel"
-									class="form-control" placeholder="Tel&eacute;fono" id="phone"
+									class="form-control input-lg" placeholder="Tel&eacute;fono" id="phone" ng-model="user.phoneNumber"
 									required
-									data-validation-required-message="Please enter your phone number.">
+									data-validation-required-message="Por favor digite su teléfono.">
 								<p class="help-block text-danger"></p>
 							</div>
 						</div>
-						<div class="form-group form-group col-xs-12 floating-label-form-group controls">
-							<label>Servicio que ofrezco</label> <select class="form-control" placeholder="Servicio que ofrezco" ng-model="offeredServices" ng-options="service.id as service.name for service in services">
-							</select>
+						<div class="row control-group">
+							<div
+								class="form-group col-xs-12 controls">
+								<label>Celular</label> <input type="tel"
+									class="form-control input-lg" placeholder="Celular" id="mobile" ng-model="user.mobileNumber"
+									required
+									data-validation-required-message="Por favor digite su celular.">
+								<p class="help-block text-danger"></p>
+							</div>
+						</div>
+						<div class="row control-group">
+							<div
+								class="form-group col-xs-12 controls">
+								<label>E-mail</label> <input type="email" class="form-control input-lg"
+									placeholder="E-mail" id="email" ng-model="user.email" required
+									data-validation-required-message="Por favor digite su e-mail">
+								<p class="help-block text-danger"></p>
+							</div>
+						</div>
+						<div class="row control-group">
+							<div
+								class="form-group col-xs-12 controls">
+								<label>Ciudad</label> <input type="text" class="form-control input-lg"
+									placeholder="Ciudad" id="city" ng-model="user.city" required
+									data-validation-required-message="Por favor digite la ciudad de residencia.">
+								<p class="help-block text-danger"></p>
+							</div>
+						</div>
+						<div class="row control-group">
+							<div class="form-group col-xs-12 controls">
+								<label>Servicios que ofrezco</label><br>
+								<label class="floating-label-form-group" ng-repeat="service in services">
+								  <input type="checkbox" data-checklist-model="user.offeredServices" data-checklist-value="service">{{service.name}}</label>								  
+							</div>
 							<p class="help-block text-danger"></p>
-						</div>				
+						</div>			
 						<br>
 						<div id="success"></div>
 						<div class="row">
 							<div class="form-group col-xs-12">
 								<button type="submit" class="btn btn-success btn-lg">Enviar</button>
 							</div>
+						</div>
+						<div class="row">
+						<div class="col-xs-12"><textarea cols=100>{{user}}</textarea>
+						</div>
 						</div>
 					</form>
 				</div>
