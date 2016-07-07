@@ -1,12 +1,12 @@
 var backendURL = "https://solucionelo-backend.herokuapp.com/api/rest";
 
-var app = angular.module('solucioneloApp', []);		
+var app = angular.module('solucioneloApp', ["checklist-model"]);		
 
 app.controller('RegistrationCtrl',function($scope, $http) {
 	$scope.idTypes = [
 	                  {
 	                	  id: "CC",
-	                	  name: "Cedula de ciudadania"
+	                	  name: "Cedula"
 	                  },
 	                  {
 	                	  id: "PA",
@@ -18,22 +18,58 @@ app.controller('RegistrationCtrl',function($scope, $http) {
 	                  }
 	                  ]
 	$scope.user = {
-			idType: null,
+			idType: $scope.idTypes[0].id,
 			idNumber: null,
 			registeredDate: null,
-			ipAddress: null,
 			firstName: null,
 			lastName: null,
 			phoneNumber: null,
 			mobileNumber: null,
 			email: null,
 			city: null,
+			ipAddress: null,
 			offeredServices: []
 	};
+	$scope.ipAddress = null;
+	var json = 'http://ipv4.myexternalip.com/json';
+	var resIp = $http.get(json);
+	resIp.success(function(result) {
+	    $scope.ipAddress = result.ip;
+	    $scope.user.ipAddress = result.ip; 
+	});
+	resIp.error(function(data, status, headers, config) {
+		$scope.ipAddress = null;
+		$scope.user.ipAddress = null;
+	});
+
 	$scope.services = null;
 	$http.get(backendURL + '/services'
 	).success(function(data) {			
-		$scope.services = data;
+		$scope.services = data;		
 	});
+	
+	$scope.create = function() {
+		$scope.submitted = true;
+		var res = $http.post(backendURL + '/users',$scope.user);
+		res.success(function(data, status, headers, config) {			
+			$scope.user = {
+					idType: $scope.idTypes[0].id,
+					idNumber: null,
+					registeredDate: null,
+					ipAddress: $scope.ipAddress,
+					firstName: null,
+					lastName: null,
+					phoneNumber: null,
+					mobileNumber: null,
+					email: null,
+					city: null,
+					offeredServices: []
+			};
+			$scope.submitted = false;
+		});
+		res.error(function(data, status, headers, config) {			
+			alert('Error');
+		});
+	}
 	
 });

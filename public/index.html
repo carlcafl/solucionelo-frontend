@@ -27,10 +27,24 @@
 	href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic"
 		rel="stylesheet" type="text/css">
 	
+	<!-- jQuery -->
+	<script src="assets/libs/jquery-1.11.3.min.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="assets/libs/bootstrap.min.js"></script>
+
+	<!-- Plugin JavaScript -->
+	<script
+		src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+	<!-- Theme JavaScript -->
+	<script src="assets/js/freelancer.min.js"></script>
 	<!-- Angular JavaScript -->
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.5/angular.min.js"></script>
+	<script src="assets/js/checklist-model.js"></script>
 	<script src="assets/js/app.js"></script>
+	<script src="assets/libs/validator.js"></script>
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -119,8 +133,7 @@
 					<div class="intro-text">
 						<span class="name">Solucionelo</span>
 						<hr class="star-light">
-						<span class="skills">El marketplace para encontrar lo que
-							necesitas</span>
+						<span class="skills">El lugar donde puedes ofrecer tus servicios en l&iacute;nea</span>
 					</div>
 				</div>
 			</div>
@@ -252,19 +265,18 @@
 				<div class="col-lg-8 col-lg-offset-2">
 					<!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
 					<!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-					<form name="sentMessage" id="contactForm">					
+					<form name="sentMessage" id="contactForm" role="form" data-toggle="validator" ng-submit="create()" >					
 						<div class="row control-group">
 							<div
 								class="form-group col-xs-6 controls">
-								<label>Tipo de Identificaci&oacute;n</label><br>
+								<label>Identificaci&oacute;n</label><br>
 								<select class="input-lg" ng-model="user.idType" ng-options="idType.id as idType.name for idType in idTypes"></select>
 								<p class="help-block text-danger"></p>
 							</div>
 							<div
-								class="form-group col-xs-6 controls">
-								<label>N&uacute;mero de identificaci&oacute;n</label> <input type="text" ng-model="user.idNumber" class="form-control input-lg"
-									placeholder="N&uacute;mero de identificaci&oacute;n" id="idNumber" required
-									data-validation-required-message="Por favor digite su tipo de identificación.">
+								class="form-group col-xs-6 controls has-feedback">
+								<input type="text" ng-model="user.idNumber" class="form-control input-lg"
+									placeholder="N&uacute;mero de identificaci&oacute;n" id="idNumber" required>
 								<p class="help-block text-danger"></p>
 							</div>
 						</div>
@@ -272,15 +284,13 @@
 							<div
 								class="form-group col-xs-6 controls">
 								<label>Nombre</label> <input type="text" class="form-control input-lg"
-									placeholder="Nombre" id="firstName" ng-model="user.firstName" required
-									data-validation-required-message="Por favor digite su nombre.">
+									placeholder="Nombre" id="firstName" ng-model="user.firstName" required>
 								<p class="help-block text-danger"></p>
 							</div>
 							<div
 								class="form-group col-xs-6 controls">
 								<label>Apellidos</label> <input type="text" class="form-control input-lg"
-									placeholder="Apellidos" id="lastName" ng-model="user.lastName" required
-									data-validation-required-message="Por favor digite sus apellidos.">
+									placeholder="Apellidos" id="lastName" ng-model="user.lastName" required>
 								<p class="help-block text-danger"></p>
 							</div>
 						</div>
@@ -289,8 +299,7 @@
 								class="form-group col-xs-12 controls">
 								<label>Tel&eacute;fono</label> <input type="tel"
 									class="form-control input-lg" placeholder="Tel&eacute;fono" id="phone" ng-model="user.phoneNumber"
-									required
-									data-validation-required-message="Por favor digite su teléfono.">
+									required>
 								<p class="help-block text-danger"></p>
 							</div>
 						</div>
@@ -299,8 +308,7 @@
 								class="form-group col-xs-12 controls">
 								<label>Celular</label> <input type="tel"
 									class="form-control input-lg" placeholder="Celular" id="mobile" ng-model="user.mobileNumber"
-									required
-									data-validation-required-message="Por favor digite su celular.">
+									required>
 								<p class="help-block text-danger"></p>
 							</div>
 						</div>
@@ -308,8 +316,7 @@
 							<div
 								class="form-group col-xs-12 controls">
 								<label>E-mail</label> <input type="email" class="form-control input-lg"
-									placeholder="E-mail" id="email" ng-model="user.email" required
-									data-validation-required-message="Por favor digite su e-mail">
+									placeholder="E-mail" id="email" ng-model="user.email" required>
 								<p class="help-block text-danger"></p>
 							</div>
 						</div>
@@ -317,8 +324,7 @@
 							<div
 								class="form-group col-xs-12 controls">
 								<label>Ciudad</label> <input type="text" class="form-control input-lg"
-									placeholder="Ciudad" id="city" ng-model="user.city" required
-									data-validation-required-message="Por favor digite la ciudad de residencia.">
+									placeholder="Ciudad" id="city" ng-model="user.city" required>
 								<p class="help-block text-danger"></p>
 							</div>
 						</div>
@@ -326,7 +332,8 @@
 							<div class="form-group col-xs-12 controls">
 								<label>Servicios que ofrezco</label><br>
 								<label class="floating-label-form-group" ng-repeat="service in services">
-								  <input type="checkbox" data-checklist-model="user.offeredServices" data-checklist-value="service">{{service.name}}</label>								  
+								  <input type="checkbox" checklist-model="user.offeredServices" checklist-value="service" ng-model="justAnotherCheckedVar">{{service.name}}
+								 </label>								  
 							</div>
 							<p class="help-block text-danger"></p>
 						</div>			
@@ -334,7 +341,7 @@
 						<div id="success"></div>
 						<div class="row">
 							<div class="form-group col-xs-12">
-								<button type="submit" class="btn btn-success btn-lg">Enviar</button>
+								<input type="submit" class="btn btn-success btn-lg" value="Enviar"/>
 							</div>
 						</div>
 						<div class="row">
@@ -622,20 +629,6 @@
 			</div>
 		</div>
 	</div>
-
-	<!-- jQuery -->
-	<script src="assets/libs/jquery-1.11.3.min.js"></script>
-
-	<!-- Bootstrap Core JavaScript -->
-	<script src="assets/libs/bootstrap.min.js"></script>
-
-	<!-- Plugin JavaScript -->
-	<script
-		src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-
-	<!-- Theme JavaScript -->
-	<script src="assets/js/freelancer.min.js"></script>
-
 </body>
 
 </html>
