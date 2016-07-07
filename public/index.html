@@ -265,89 +265,102 @@
 				<div class="col-lg-8 col-lg-offset-2">
 					<!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
 					<!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-					<form name="sentMessage" id="contactForm" role="form" data-toggle="validator" ng-submit="create()" >					
+					<form name="contactForm" id="contactForm" role="form" data-toggle="validator" novalidate ng-submit="contactForm.$valid && create()" >					
 						<div class="row control-group">
 							<div
-								class="form-group col-xs-6 controls">
-								<label>Identificaci&oacute;n</label><br>
-								<select class="input-lg" ng-model="user.idType" ng-options="idType.id as idType.name for idType in idTypes"></select>
-								<p class="help-block text-danger"></p>
+								class="form-group col-xs-6 controls has-feedback">
+								<label>Identificaci&oacute;n</label><br/>
+								<select class="input-lg" ng-model="user.idType" data-error="Seleccione el tipo de identificaci&oacute;n" required ng-options="idType.id as idType.name for idType in idTypes"></select>
+								<div class="help-block with-errors"></div>
 							</div>
 							<div
 								class="form-group col-xs-6 controls has-feedback">
+								<label>&nbsp;</label><br/>
 								<input type="text" ng-model="user.idNumber" class="form-control input-lg"
-									placeholder="N&uacute;mero de identificaci&oacute;n" id="idNumber" required>
-								<p class="help-block text-danger"></p>
+									placeholder="N&uacute;mero de identificaci&oacute;n" maxlength="18" pattern="^[0-9]{1,}$" id="idNumber" required ng-minlength="3" ng-maxlength="18"
+									data-error="S&oacute;lo caracteres num&eacute;ricos, m&aacute;ximo 18 caracteres">
+								<div class="help-block with-errors"></div>
 							</div>
 						</div>
 						<div class="row control-group">
 							<div
 								class="form-group col-xs-6 controls">
 								<label>Nombre</label> <input type="text" class="form-control input-lg"
-									placeholder="Nombre" id="firstName" ng-model="user.firstName" required>
-								<p class="help-block text-danger"></p>
+									placeholder="Nombre" id="firstName" pattern="^[_A-z]{1,}$" maxlength="50" ng-model="user.firstName" required ng-maxlength="50"
+									data-error="S&oacute;lo letras, m&aacute;ximo 50 caracteres">
+								<div class="help-block with-errors"></div>
 							</div>
 							<div
 								class="form-group col-xs-6 controls">
 								<label>Apellidos</label> <input type="text" class="form-control input-lg"
-									placeholder="Apellidos" id="lastName" ng-model="user.lastName" required>
-								<p class="help-block text-danger"></p>
+									placeholder="Apellidos" id="lastName" pattern="^[_A-z]{1,}$" maxlength="50" ng-model="user.lastName" required ng-maxlength="50"
+									data-error="S&oacute;lo letras, m&aacute;ximo 50 caracteres">
+								<div class="help-block with-errors"></div>
 							</div>
 						</div>
 						<div class="row control-group">
 							<div
 								class="form-group col-xs-12 controls">
 								<label>Tel&eacute;fono</label> <input type="tel"
-									class="form-control input-lg" placeholder="Tel&eacute;fono" id="phone" ng-model="user.phoneNumber"
-									required>
-								<p class="help-block text-danger"></p>
+									class="form-control input-lg" pattern="^[0-9]{1,}$" placeholder="Tel&eacute;fono" id="phone" ng-model="user.phoneNumber"
+									required ng-minlength="6" ng-maxlength="10" maxlength="10"
+									data-error="S&oacute;lo n&uacute;meros, m&aacute;ximo 10 d&iacute;gitos">
+								<div class="help-block with-errors"></div>
 							</div>
 						</div>
 						<div class="row control-group">
 							<div
 								class="form-group col-xs-12 controls">
 								<label>Celular</label> <input type="tel"
-									class="form-control input-lg" placeholder="Celular" id="mobile" ng-model="user.mobileNumber"
-									required>
-								<p class="help-block text-danger"></p>
+									class="form-control input-lg" pattern="^[0-9]{1,}$" placeholder="Celular" id="mobile" ng-model="user.mobileNumber"
+									required ng-minlength="7" ng-maxlength="10" maxlength="10"
+									data-error="S&oacute;lo n&uacute;meros, m&aacute;ximo 10 d&iacute;gitos">
+								<div class="help-block with-errors"></div>
 							</div>
 						</div>
 						<div class="row control-group">
 							<div
 								class="form-group col-xs-12 controls">
 								<label>E-mail</label> <input type="email" class="form-control input-lg"
-									placeholder="E-mail" id="email" ng-model="user.email" required>
-								<p class="help-block text-danger"></p>
+									placeholder="E-mail" id="email" ng-model="user.email" required ng-maxlength="80" maxlength="80"
+									data-error="Por favor ingrese un e-mail v&aacute;lido">
+								<div class="help-block with-errors"></div>
 							</div>
 						</div>
 						<div class="row control-group">
 							<div
 								class="form-group col-xs-12 controls">
 								<label>Ciudad</label> <input type="text" class="form-control input-lg"
-									placeholder="Ciudad" id="city" ng-model="user.city" required>
-								<p class="help-block text-danger"></p>
+									placeholder="Ciudad" id="city" ng-model="user.city" required ng-minlength="4" ng-maxlength="30" maxlength="30"
+									data-error="S&oacute;lo letras, m&aacute;ximo 30 caracteres">
+								<div class="help-block with-errors"></div>
 							</div>
 						</div>
 						<div class="row control-group">
 							<div class="form-group col-xs-12 controls">
 								<label>Servicios que ofrezco</label><br>
 								<label class="floating-label-form-group" ng-repeat="service in services">
-								  <input type="checkbox" checklist-model="user.offeredServices" checklist-value="service" ng-model="justAnotherCheckedVar">{{service.name}}
-								 </label>								  
-							</div>
-							<p class="help-block text-danger"></p>
+								  <input type="checkbox" checklist-model="user.offeredServices" checklist-value="service" data-error="Debes seleccionar al menos un servicio ofrecido.">{{service.name}}
+								 </label>
+								 <div id="servicesValidation" class="help-block with-errors"></div>								  
+							</div>							
 						</div>			
 						<br>
-						<div id="success"></div>
-						<div class="row">
+						<div role="alert" id="successMessage"
+		class="alert alert-success alert-dismissable" style="display: none">
+		<button type="button" class="close" data-dismiss="alert"
+			aria-hidden="true">&times;</button>
+		Gracias por tu registro
+	</div>
+						 <div class="row">
 							<div class="form-group col-xs-12">
 								<input type="submit" class="btn btn-success btn-lg" value="Enviar"/>
 							</div>
 						</div>
-						<div class="row">
+						<!--<div class="row">
 						<div class="col-xs-12"><textarea cols=100>{{user}}</textarea>
 						</div>
-						</div>
+						</div> -->
 					</form>
 				</div>
 			</div>

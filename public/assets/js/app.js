@@ -49,27 +49,40 @@ app.controller('RegistrationCtrl',function($scope, $http) {
 	});
 	
 	$scope.create = function() {
-		$scope.submitted = true;
-		var res = $http.post(backendURL + '/users',$scope.user);
-		res.success(function(data, status, headers, config) {			
-			$scope.user = {
-					idType: $scope.idTypes[0].id,
-					idNumber: null,
-					registeredDate: null,
-					ipAddress: $scope.ipAddress,
-					firstName: null,
-					lastName: null,
-					phoneNumber: null,
-					mobileNumber: null,
-					email: null,
-					city: null,
-					offeredServices: []
-			};
-			$scope.submitted = false;
-		});
-		res.error(function(data, status, headers, config) {			
-			alert('Error');
-		});
+		if ($scope.user.offeredServices.length==0) {
+			document.getElementById("servicesValidation").innerText="Debes seleccionar al menos un servicio ofrecido.";
+			return;
+		} else {
+			document.getElementById("servicesValidation").innerText="";
+			$scope.submitted = true;
+			var res = $http.post(backendURL + '/users',$scope.user);
+			res.success(function(data, status, headers, config) {			
+				$scope.user = {
+						idType: $scope.idTypes[0].id,
+						idNumber: null,
+						registeredDate: null,
+						ipAddress: $scope.ipAddress,
+						firstName: null,
+						lastName: null,
+						phoneNumber: null,
+						mobileNumber: null,
+						email: null,
+						city: null,
+						offeredServices: []
+				};
+				$scope.submitted = false;
+				showAlert('#successMessage');
+			});
+			res.error(function(data, status, headers, config) {			
+				alert('Error');
+			});
+		}
+		
 	}
 	
 });
+
+function showAlert(alertId) {
+	$(alertId).show();
+	window.setTimeout(function() {$(alertId).hide();}, 2000);
+}
