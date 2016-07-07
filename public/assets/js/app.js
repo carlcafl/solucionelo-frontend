@@ -31,7 +31,7 @@ app.controller('RegistrationCtrl',function($scope, $http) {
 			offeredServices: []
 	};
 	$scope.ipAddress = null;
-	var json = 'http://ipv4.myexternalip.com/json';
+	var json = 'https://ipv4.myexternalip.com/json';
 	var resIp = $http.get(json);
 	resIp.success(function(result) {
 	    $scope.ipAddress = result.ip;
