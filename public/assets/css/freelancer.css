@@ -102,6 +102,12 @@ header .intro-text .skills {
   header .intro-text .skills {
     font-size: 1.75em;
   }
+  .navbar {
+      padding: 20px 0;
+      -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
+      -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
+      transition: background .5s ease-in-out,padding .5s ease-in-out;
+   }
 }
 .navbar-custom {
   background: #0A1F2D ;
@@ -507,3 +513,7 @@ fieldset[disabled] .btn-success.active {
 blockquote {
     border: 0px !important;
   }
+
+.top-nav-collapse {
+        padding: 0;
+    }
