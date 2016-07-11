@@ -14,6 +14,7 @@
 
 <!-- Bootstrap Core CSS -->
 <link href="assets/css/bootstrap.css" rel="stylesheet">
+<link href="assets/css/scrolling-nav.css" rel="stylesheet">
 
 <!-- Theme CSS -->
 <link href="assets/css/freelancer.css" rel="stylesheet">
@@ -42,6 +43,7 @@
 	<!-- Angular JavaScript -->
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.5/angular.min.js"></script>
+	<script src="assets/js/scrolling-nav.js"></script>
 	<script src="assets/js/checklist-model.js"></script>
 	<script src="assets/js/app.js"></script>
 	<script src="assets/libs/validator.js"></script>
@@ -71,7 +73,7 @@
 
 </head>
 
-<body id="page-top" class="index" ng-controller="RegistrationCtrl">
+<body id="page-top" class="index" ng-controller="RegistrationCtrl" data-spy="scroll" data-target=".navbar-fixed-top">
 	<!-- Google Tag Manager -->
 	<noscript>
 		<iframe src="//www.googletagmanager.com/ns.html?id=GTM-NLRN35"
@@ -100,22 +102,22 @@
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header page-scroll">
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target="#bs-example-navbar-collapse-1">
+					data-target="#navbar-collapse">
 					<span class="sr-only">Navegaci&oacute;n</span> Menu <i
 						class="fa fa-bars"></i>
 				</button>
-				<a class="navbar-brand" href="#page-top"><img src="img/logoHeader.png"></a>
+				<a class="navbar-brand page-scroll" href="#page-top"><img src="img/logoHeader.png"></a>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse"
-				id="bs-example-navbar-collapse-1">
+				id="navbar-collapse">
 				<ul class="nav navbar-nav navbar-right">
 					<li class="hidden"><a href="#page-top"></a></li>
-					<li class="page-scroll"><a href="#portfolio">Servicios</a></li>
-					<li class="page-scroll"><a href="#about">Sobre soluci&oacute;nelo</a>
+					<li class="page-scroll"><a class="page-scroll" href="#portfolio">Servicios</a></li>
+					<li class="page-scroll"><a class="page-scroll" href="#about">Sobre soluci&oacute;nelo</a>
 					</li>
-					<li class="page-scroll"><a href="#contact">Registro</a>
+					<li class="page-scroll"><a class="page-scroll" href="#contact">Registro</a>
 					</li>
 				</ul>
 			</div>
@@ -123,57 +125,68 @@
 		</div>
 		<!-- /.container-fluid -->
 	</nav>
-<br/><br/><br/><br/><br/>
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-  </ol>
+	<header>
+		<div class="container">
+			<div id="myCarousel" class="carousel slide" data-ride="carousel">
+				<!-- Indicators -->
+				<ol class="carousel-indicators">
+					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+					<li data-target="#myCarousel" data-slide-to="1"></li>
+				</ol>
 
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner" role="listbox">
-    <div class="item active">
-      <div class="row">
-      	<div class="col-xs-12 col-sm-12 col-md-5 col-md-offset-1 col-lg-5 col-lg-offset-1 text-right">
-      		<h2>El primer marketplace de servicios</h2>
-      		<p class="lead">Desde aqu&iacute; podr&aacute;s ofrecer todos tus servicios profesionales con seguridad.</p>
-      		<p>Adicionalmente, tus clientes estar&aacute;n tranquilos porque estar&aacute;s protegido mientras realizas tu trabajo.</p>
-      		<a class="btn btn-lg btn-primary" href="#contact" title="">Reg&iacute;strate ahora</a>
-      	</div>
-      	<div class="visible-md visible-lg col-md-5 col-lg-5 text-center">
-      	<img src="img/jumbotron3.png" alt="">
-      	</div>
-      </div>
-    </div>
+				<!-- Wrapper for slides -->
+				<div class="carousel-inner" role="listbox">
+					<div class="item active">
+						<div class="row">
+							<div
+								class="col-xs-12 col-sm-12 col-md-5 col-md-offset-1 col-lg-5 col-lg-offset-1 text-right">
+								<h2>El primer marketplace de servicios</h2>
+								<p class="lead">Desde aqu&iacute; podr&aacute;s ofrecer
+									todos tus servicios profesionales con seguridad.</p>
+								<p>Adicionalmente, tus clientes estar&aacute;n tranquilos
+									porque estar&aacute;s protegido mientras realizas tu trabajo.</p>
+								<a class="btn btn-lg btn-primary page-scroll" href="#contact" title="">Reg&iacute;strate
+									ahora</a>
+							</div>
+							<div class="visible-md visible-lg col-md-5 col-lg-5 text-center">
+								<img src="img/jumbotron3.png" alt="">
+							</div>
+						</div>
+					</div>
 
-    <div class="item">
-      <div class="row">
-      	<div class="visible-md visible-lg col-md-5 col-lg-5 text-center">
-      	<img src="img/jumbotron4.png" alt="">
-      	</div>
-      	<div class="col-xs-12 col-sm-12 col-md-5 col-md-offset-1 col-lg-5 col-lg-offset-1 text-right">
-      		<h2>Nuestros clientes as&iacute; lo confirman</h2>
-      		<blockquote>
-      			<p>"Logr&eacute; ubicar un servicio de jardinero f&aacute;cil, r&aacute;pido y seguro con soluci&oacute;nelo"</p>
-      			<footer>Cliente satisfecho XYZ</footer>
-      		</blockquote>
-      		<a class="btn btn-lg btn-primary" href="#contact" title="">Reg&iacute;strate ahora</a>
-      	</div>
-      </div>
-    </div>
-  </div>
+					<div class="item">
+						<div class="row">
+							<div class="visible-md visible-lg col-md-5 col-lg-5 text-center">
+								<img src="img/jumbotron4.png" alt="">
+							</div>
+							<div
+								class="col-xs-12 col-sm-12 col-md-5 col-md-offset-1 col-lg-5 col-lg-offset-1 text-right">
+								<h2>Nuestros clientes as&iacute; lo confirman</h2>
+								<blockquote>
+									<p>"Logr&eacute; ubicar un servicio de jardinero
+										f&aacute;cil, r&aacute;pido y seguro con soluci&oacute;nelo"</p>
+									<footer>Cliente satisfecho XYZ</footer>
+								</blockquote>
+								<a class="btn btn-lg btn-primary page-scroll" href="#contact" title="">Reg&iacute;strate
+									ahora</a>
+							</div>
+						</div>
+					</div>
+				</div>
 
-  <!-- Left and right controls -->
-  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-    <span class="sr-only">Anterior</span>
-  </a>
-  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    <span class="sr-only">Siguiente</span>
-  </a>
-</div>
+				<!-- Left and right controls -->
+				<a class="left carousel-control" href="#myCarousel" role="button"
+					data-slide="prev"> <span
+					class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+					<span class="sr-only">Anterior</span>
+				</a> <a class="right carousel-control" href="#myCarousel" role="button"
+					data-slide="next"> <span
+					class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+					<span class="sr-only">Siguiente</span>
+				</a>
+			</div>
+		</div>
+	</header>
 	<!-- Portfolio Grid Section -->
 	<section id="portfolio">
 		<div class="container">
