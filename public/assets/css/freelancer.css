@@ -18,7 +18,7 @@ a:hover,
 a:focus,
 a:active,
 a.active {
-  color: #72CEF4;
+  color: #00A5C1;
   outline: none;
 }
 h1,
@@ -53,15 +53,15 @@ hr.star-light {
   border-color: white;
 }
 hr.star-light:after {
-  background-color: #76B729;
+  background-color: #AFCB07;
   color: white;
 }
 hr.star-primary {
-  border-color: #76B729 ;
+  border-color: #AFCB07 ;
 }
 hr.star-primary:after {
   background-color: white;
-  color: #76B729 ;
+  color: #AFCB07 ;
 }
 .img-centered {
   margin: 0 auto;
@@ -69,7 +69,7 @@ hr.star-primary:after {
 header {
   text-align: center;
   background: #FFFFFF;
-  /*background: #72CEF4;*/
+  /*background: #00A5C1;*/
   color: #575656;
 }
 header .container {
@@ -104,13 +104,13 @@ header .intro-text .skills {
    }
 }
 .navbar-custom {
-  background: #76B729 ;
+  background: #AFCB07 ;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 700;
   border: none;
 }
 .navbar-default {
-  background: #76B729 !important;
+  background: #AFCB07 !important;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 700;
   border: none !important;  
@@ -134,22 +134,22 @@ header .intro-text .skills {
   color: white ;
 }
 .navbar-custom .navbar-nav li a:hover {
-  color: #72CEF4;
+  color: #00A5C1;
   outline: none;
 }
 .navbar-custom .navbar-nav li a:focus,
 .navbar-custom .navbar-nav li a:active {
-  color: #76B729;
+  color: white;
 }
 .navbar-custom .navbar-nav li.active a {
-  color: #76B729;
-  background: #72CEF4;
+  color: white;
+  background: #00A5C1;
 }
 .navbar-custom .navbar-nav li.active a:hover,
 .navbar-custom .navbar-nav li.active a:focus,
 .navbar-custom .navbar-nav li.active a:active {
-  color: #76B729;
-  background: #72CEF4;
+  color: white;
+  background: #00A5C1;
 }
 .navbar-custom .navbar-default .navbar-toggle {
   color: white !important;
@@ -158,9 +158,9 @@ header .intro-text .skills {
 }
 .navbar-custom .navbar-toggle:hover,
 .navbar-custom .navbar-toggle:focus {
-  background-color: #72CEF4;
+  background-color: #00A5C1;
   color: white;
-  border-color: #72CEF4;
+  border-color: #00A5C1;
 }
 @media (min-width: 768px) {
   .navbar-custom {
@@ -190,7 +190,7 @@ section h2 {
   font-size: 3em;
 }
 section.success {
-  background: #76B729;
+  background: #AFCB07;
   color: white;
 }
 @media (max-width: 767px) {
@@ -293,7 +293,7 @@ section.success {
   opacity: 1;
 }
 .floating-label-form-group-with-focus label {
-  color: #72CEF4;
+  color: #00A5C1;
 }
 form .row:first-child .floating-label-form-group {
   border-top: 1px solid #eeeeee;
@@ -308,7 +308,7 @@ footer h3 {
 }
 footer .footer-above {
   padding-top: 50px;
-  background-color: #76B729 ;
+  background-color: #AFCB07 ;
 }
 footer .footer-col {
   margin-bottom: 50px;
@@ -329,14 +329,14 @@ footer .footer-below {
 .btn-outline:focus,
 .btn-outline:active,
 .btn-outline.active {
-  color: #72CEF4;
+  color: #00A5C1;
   background: white;
   border: solid 2px white;
 }
 .btn-primary {
   color: white;
-  background-color: #76B729 ;
-  border-color: #76B729 ;
+  background-color: #AFCB07 ;
+  border-color: #AFCB07 ;
   font-weight: 700;
 }
 .btn-primary:hover,
@@ -368,17 +368,17 @@ fieldset[disabled] .btn-primary:active,
 .btn-primary.disabled.active,
 .btn-primary[disabled].active,
 fieldset[disabled] .btn-primary.active {
-  background-color: #76B729 ;
-  border-color: #76B729 ;
+  background-color: #AFCB07 ;
+  border-color: #AFCB07 ;
 }
 .btn-primary .badge {
-  color: #76B729 ;
+  color: #AFCB07 ;
   background-color: white;
 }
 .btn-success {
   color: white;
-  background-color: #72CEF4;
-  border-color: #72CEF4;
+  background-color: #00A5C1;
+  border-color: #00A5C1;
   font-weight: 700;
 }
 .btn-success:hover,
@@ -410,11 +410,11 @@ fieldset[disabled] .btn-success:active,
 .btn-success.disabled.active,
 .btn-success[disabled].active,
 fieldset[disabled] .btn-success.active {
-  background-color: #72CEF4;
-  border-color: #72CEF4;
+  background-color: #00A5C1;
+  border-color: #00A5C1;
 }
 .btn-success .badge {
-  color: #72CEF4;
+  color: #00A5C1;
   background-color: white;
 }
 .btn-social {
@@ -485,7 +485,7 @@ fieldset[disabled] .btn-success.active {
   height: 75px;
   width: 1px;
   margin-left: 35px;
-  background-color: #76B729 ;
+  background-color: #AFCB07 ;
   transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   /* IE 9 */
@@ -496,7 +496,7 @@ fieldset[disabled] .btn-success.active {
 .portfolio-modal .close-modal .lr .rl {
   height: 75px;
   width: 1px;
-  background-color: #76B729 ;
+  background-color: #AFCB07 ;
   transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   /* IE 9 */
@@ -521,12 +521,12 @@ blockquote {
     overflow-y: auto !important;
 }
 .modal-header {
-	background-color: #76B729 !important;
+	background-color: #AFCB07 !important;
   	color: white !important;
 }
 
 button.close {
-	background-color: #76B729 !important;
+	background-color: #AFCB07 !important;
   	color: white !important;
 }
 
@@ -544,8 +544,8 @@ button.close {
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
   display: block !important;
-  width: 100% !important;
   height: auto !important;
+  max-height: 600px !important;
 }
 
 /* ------------------- Carousel Styling ------------------- */
@@ -582,17 +582,14 @@ button.close {
 .carousel-control.right {
   background-image: none;
 }
-
-@media screen and (min-width: 992px) {
-
-  .container {
-    max-width: 930px;
-  }
-  
-} 
  .footer-below .vigilado {
     position: absolute;
     left: 15px;
     z-index: 999;
     bottom: 3px;
+  }
+  
+  .resaltado {
+  	background-color: #AFCB07;
+  	color: white;
   }

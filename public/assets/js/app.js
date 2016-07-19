@@ -11,10 +11,6 @@ app.controller('RegistrationCtrl',function($scope, $http) {
 	                  {
 	                	  id: "PA",
 	                	  name: "Pasaporte"
-	                  },
-	                  {
-	                	  id: "TI",
-	                	  name: "Tarjeta de identidad"
 	                  }
 	                  ]
 	$scope.user = {
@@ -26,7 +22,7 @@ app.controller('RegistrationCtrl',function($scope, $http) {
 			phoneNumber: null,
 			mobileNumber: null,
 			email: null,
-			city: null,
+			referrer: null,
 			ipAddress: null,
 			offeredServices: []
 	};
@@ -51,7 +47,7 @@ app.controller('RegistrationCtrl',function($scope, $http) {
 	
 	$scope.create = function() {
 		if ($scope.user.offeredServices.length==0) {
-			document.getElementById("servicesValidation").innerText="Debes seleccionar al menos un servicio ofrecido.";
+			document.getElementById("servicesValidation").innerText="Debes seleccionar al menos una profesión.";
 			return;
 		} else {
 			document.getElementById("servicesValidation").innerText="";
@@ -68,7 +64,7 @@ app.controller('RegistrationCtrl',function($scope, $http) {
 						phoneNumber: null,
 						mobileNumber: null,
 						email: null,
-						city: null,
+						referrer: null,
 						offeredServices: []
 				};
 				$scope.acceptane = false;
