@@ -30,6 +30,7 @@ app.controller('RegistrationCtrl',function($scope, $http) {
 			ipAddress: null,
 			offeredServices: []
 	};
+	$scope.acceptance = false;
 	$scope.ipAddress = null;
 	var json = 'https://ipv4.myexternalip.com/json';
 	var resIp = $http.get(json);
@@ -70,6 +71,7 @@ app.controller('RegistrationCtrl',function($scope, $http) {
 						city: null,
 						offeredServices: []
 				};
+				$scope.acceptane = false;
 				$scope.submitted = false;
 				showAlert('#successMessage');
 			});

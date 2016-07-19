@@ -114,10 +114,10 @@
 				id="navbar-collapse">
 				<ul class="nav navbar-nav navbar-right">
 					<li class="hidden"><a href="#page-top"></a></li>
-					<li class="page-scroll"><a class="page-scroll" href="#portfolio">Servicios</a></li>
-					<li class="page-scroll"><a class="page-scroll" href="#about">Sobre soluci&oacute;nelo</a>
+					<!-- <li class="page-scroll"><a class="page-scroll" href="#portfolio">SERVICIOS</a></li>-->
+					<li class="page-scroll"><a class="page-scroll" href="#about">SOBRE NOSOTROS</a>
 					</li>
-					<li class="page-scroll"><a class="page-scroll" href="#contact">Registro</a>
+					<li class="page-scroll"><a class="page-scroll" href="#contact">REGISTRO</a>
 					</li>
 				</ul>
 			</div>
@@ -135,7 +135,7 @@
 				</ol>
 
 				<!-- Wrapper for slides -->
-				<div class="carousel-inner" role="listbox">
+				<div class="carousel-inner">
 					<div class="item active">
 						<div class="row">
 							<div
@@ -155,40 +155,25 @@
 					</div>
 
 					<div class="item">
-						<div class="row">
-							<div class="visible-md visible-lg col-md-5 col-lg-5 text-center">
-								<img src="img/jumbotron4.png" alt="">
-							</div>
-							<div
-								class="col-xs-12 col-sm-12 col-md-5 col-md-offset-1 col-lg-5 col-lg-offset-1 text-right">
-								<h2>Nuestros clientes as&iacute; lo confirman</h2>
-								<blockquote>
-									<p>"Logr&eacute; ubicar un servicio de jardinero
-										f&aacute;cil, r&aacute;pido y seguro con soluci&oacute;nelo"</p>
-									<footer>Cliente satisfecho XYZ</footer>
-								</blockquote>
-								<a class="btn btn-lg btn-primary page-scroll" href="#contact" title="">Reg&iacute;strate
-									ahora</a>
-							</div>
-						</div>
+								<img src="img/ClientesServicios.png" alt="">
+							<div class="carousel-caption">
+					<p>Da a conocer tus servicios a trav&eacute;s de nuestra plataforma que llega a miles de personas interesadas en contratarte.</p>
+					</div>
 					</div>
 				</div>
 
-				<!-- Left and right controls -->
-				<a class="left carousel-control" href="#myCarousel" role="button"
-					data-slide="prev"> <span
-					class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-					<span class="sr-only">Anterior</span>
-				</a> <a class="right carousel-control" href="#myCarousel" role="button"
-					data-slide="next"> <span
-					class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-					<span class="sr-only">Siguiente</span>
-				</a>
+				      <!-- Controls -->
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+      </a>
 			</div>
 		</div>
 	</header>
 	<!-- Portfolio Grid Section -->
-	<section id="portfolio">
+	<!-- <section id="portfolio">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 text-center">
@@ -261,13 +246,13 @@
 			</div>
 		</div>
 	</section>
-
+ -->
 	<!-- About Section -->
 	<section class="success" id="about">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 text-center">
-					<h2>Sobre Solucionelo</h2>
+					<h2>Sobre Soluci&oacute;nelo</h2>
 					<hr class="star-light">
 				</div>
 			</div>
@@ -391,7 +376,15 @@
 								 </label>
 								 <div id="servicesValidation" class="help-block with-errors"></div>								  
 							</div>							
-						</div>			
+						</div>
+						<div class="row control-group">
+							<div class="form-group col-xs-12 controls"><br>
+								<label class="floating-label-form-group">
+								  <input type="checkbox" required ng-model="acceptance" data-error="Debes aceptar los t&eacute;rminos y condiciones.">Acepto <a data-toggle="modal" href="info/terminosYCondiciones.html" data-target="#popupModal">t&eacute;rminos y condiciones</a>, y la <a data-toggle="modal" href="info/politicaPrivacidad.html" data-target="#popupModalPriv">pol&iacute;tica de privacidad</a>.
+								 </label>
+								 <div class="help-block with-errors"></div>								  
+							</div>							
+						</div>
 						<br>
 						<div role="alert" id="successMessage"
 		class="alert alert-success alert-dismissable" style="display: none">
@@ -416,17 +409,16 @@
 
 	<!-- Footer -->
 	<footer class="text-center">
-		<div class="footer-above">
+		
+		<div class="footer-below">
+			<div class="vigilado">
+				<img src="/img/vigilado.png" alt="Vigilado por la Superfinanciera">
+			</div>
 			<div class="container">
 				<div class="row">
-					<div class="footer-col col-md-4">
-						<h3>Ubicaci&oacute;n</h3>
-						<p>
-							Cra. 64 B # 49A-30 <br>Medell&iacute;n, Colombia
-						</p>
-					</div>
-					<div class="footer-col col-md-4">
-						<h3>S&iacute;guenos</h3>
+					<div class="navbar" id="footer-body">				
+            <div class="container info_medium">
+            <!--<div class="footer-col col-sm-12">
 						<ul class="list-inline">
 							<li><a href="#" class="btn-social btn-outline"><i
 									class="fa fa-fw fa-facebook"></i></a></li>
@@ -440,13 +432,19 @@
 									class="fa fa-fw fa-dribbble"></i></a></li>
 						</ul>
 					</div>
-				</div>
-			</div>
-		</div>
-		<div class="footer-below">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12">Copyright &copy; Solucionelo 2016</div>
+					<br/>-->
+              <div class="col-xs-12 col-sm-6 ladoIzquierdo">Para más información escríbenos a:<br>
+              <span><img src="/img/Icon-WS.png" width="20" height="20" alt="" style="display:inline-block"> <span style="display:inline-block">&nbsp;311 334 4556 &nbsp;&nbsp;ó &nbsp;</span> <img src="/img/Icon-mail.png" width="20" height="20" alt="" style="display:inline-block"> &nbsp;<a href="mailto:info@solucionelo.com">info@solucionelo.com</a></span></div>
+                <div class="col-xs-12 col-sm-6 ladoDerecho">
+                	<div class="logoSura"><img src="/img/logoHeader.png" alt=""></div>
+                </div>
+
+            </div>
+            <div class="container-fluid legales-footer">
+                <div class="col-xs-12 col-sm-6 ladoDerecho"><a data-toggle="modal" href="info/politicaPrivacidad.html" data-target="#popupModalPriv">Política de privacidad y seguridad.</a> - <a data-toggle="modal" href="info/terminosYCondiciones.html" data-target="#popupModalPriv">Términos y condiciones.</a></div>
+             	<div class="col-xs-12 col-sm-6 ladoDerecho">SOLUCI&Oacute;NELO 2016. Todos los derechos reservados.</div>
+            </div>
+            </div>
 				</div>
 			</div>
 		</div>
@@ -683,6 +681,43 @@
 								data-dismiss="modal">
 								<i class="fa fa-times"></i> Close
 							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	<div class="portfolio-modal modal fade" id="popupModal"
+		tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-header">
+                <button type="button" class="btn-lg close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                 <h4 class="modal-title">T&eacute;rminos y condiciones</h4>
+            </div>
+		<div class="modal-content">		
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-8 col-lg-offset-2">
+						<div class="modal-body"><div class="te"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="portfolio-modal modal fade" id="popupModalPriv"
+		tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-header">
+                <button type="button" class="btn-lg close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                 <h4 class="modal-title">Pol&iacute;tica de privacidad</h4>
+            </div>
+		<div class="modal-content">		
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-8 col-lg-offset-2">
+						<div class="modal-body"><div class="te"></div>
 						</div>
 					</div>
 				</div>
