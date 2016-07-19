@@ -53,7 +53,14 @@ app.controller('RegistrationCtrl',function($scope, $http) {
 			document.getElementById("servicesValidation").innerText="";
 			$scope.submitted = true;
 			var res = $http.post(backendURL + '/users',$scope.user);
-			res.success(function(data, status, headers, config) {			
+			res.success(function(data, status, headers, config) {	
+				//Evento de analytics
+				ga('send', {
+					  hitType: 'event',
+					  eventCategory: 'registro',
+					  eventAction: 'registro',
+					  eventLabel: ''
+					});
 				$scope.user = {
 						idType: $scope.idTypes[0].id,
 						idNumber: null,
