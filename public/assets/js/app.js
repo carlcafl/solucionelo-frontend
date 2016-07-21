@@ -24,9 +24,11 @@ app.controller('RegistrationCtrl',function($scope, $http) {
 			email: null,
 			referrer: null,
 			ipAddress: null,
-			offeredServices: []
+			offeredServices: [],
+			otherServices: null
 	};
 	$scope.acceptance = false;
+	$scope.otherService = null;
 	$scope.ipAddress = null;
 	var json = 'https://ipv4.myexternalip.com/json';
 	var resIp = $http.get(json);
@@ -46,7 +48,7 @@ app.controller('RegistrationCtrl',function($scope, $http) {
 	});
 	
 	$scope.create = function() {
-		if ($scope.user.offeredServices.length==0) {
+		if ($scope.user.offeredServices.length==0 && $scope.otherService==null) {
 			document.getElementById("servicesValidation").innerText="Debes seleccionar al menos una profesión.";
 			return;
 		} else {
@@ -71,11 +73,13 @@ app.controller('RegistrationCtrl',function($scope, $http) {
 						phoneNumber: null,
 						mobileNumber: null,
 						email: null,
-						referrer: null,
-						offeredServices: []
+						referrer: null,						
+						offeredServices: [],
+						otherServices: null
 				};
-				$scope.acceptane = false;
+				$scope.acceptance = false;
 				$scope.submitted = false;
+				$scope.otherService = null;
 				showAlert('#successMessage');
 			});
 			res.error(function(data, status, headers, config) {			

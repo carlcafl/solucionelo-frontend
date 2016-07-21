@@ -53,7 +53,7 @@ hr.star-light {
   border-color: white;
 }
 hr.star-light:after {
-  background-color: #AFCB07;
+  background-color: #00A5C1;
   color: white;
 }
 hr.star-primary {
@@ -190,7 +190,7 @@ section h2 {
   font-size: 3em;
 }
 section.success {
-  background: #AFCB07;
+  background: #00A5C1;
   color: white;
 }
 @media (max-width: 767px) {
