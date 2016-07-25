@@ -593,3 +593,20 @@ button.close {
   	background-color: #AFCB07;
   	color: white;
   }
+  
+#loadingDiv {
+    position: fixed;
+    top:0; left:0;
+    right:0; bottom:0;
+    background: #000;
+    z-index: 100;
+    opacity: 0.7;
+    display: none;
+}
+#loader {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    left:50%; top:50%;
+    margin:-50px 0 0 -50px;
+} 

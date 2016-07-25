@@ -48,11 +48,12 @@ app.controller('RegistrationCtrl',function($scope, $http) {
 	});
 	
 	$scope.create = function() {
-		if ($scope.user.offeredServices.length==0 && $scope.otherService==null) {
-			document.getElementById("servicesValidation").innerText="Debes seleccionar al menos una profesión.";
+		if ($scope.user.offeredServices.length==0 && $scope.user.otherServices==null) {
+			document.getElementById("servicesValidation").innerHTML="Debes seleccionar al menos una profesi&oacute;n, o ingresar OTRA.";
 			return;
-		} else {
-			document.getElementById("servicesValidation").innerText="";
+		} else {			
+			document.getElementById("servicesValidation").innerHTML="";
+			showLoading();
 			$scope.submitted = true;
 			var res = $http.post(backendURL + '/users',$scope.user);
 			res.success(function(data, status, headers, config) {	
@@ -80,10 +81,12 @@ app.controller('RegistrationCtrl',function($scope, $http) {
 				$scope.acceptance = false;
 				$scope.submitted = false;
 				$scope.otherService = null;
+				hideLoading();
 				showAlert('#successMessage');
 			});
 			res.error(function(data, status, headers, config) {			
-				alert('Error');
+				hideLoading();
+				alert('Error grabando el registro. Por favor intenta nuevamente.');
 			});
 		}
 		
@@ -94,4 +97,12 @@ app.controller('RegistrationCtrl',function($scope, $http) {
 function showAlert(alertId) {
 	$(alertId).show();
 	window.setTimeout(function() {$(alertId).hide();}, 2000);
+}
+
+function showLoading() {
+	document.getElementById('loadingDiv').style.display = 'block';
+}
+
+function hideLoading() {
+	document.getElementById('loadingDiv').style.display = 'none';
 }

@@ -75,6 +75,10 @@
 
 <body id="page-top" class="index" ng-controller="RegistrationCtrl"
 	data-spy="scroll" data-target=".navbar-fixed-top">	
+<div id="loadingDiv">
+    <div id="loader">ENVIANDO...</div>
+</div>
+	
 	<!-- Navigation -->
 	<nav id="mainNav"
 		class="navbar navbar-default navbar-fixed-top navbar-custom">
@@ -318,7 +322,7 @@
 							<div class="form-group col-xs-12 controls">
 								<label>¿Cu&aacute;l?</label> <input type="text"
 									class="form-control input-lg" placeholder="¿Cu&aacute;l?"
-									id="otherServices" ng-model="user.otherServices" required
+									id="otherServices" ng-model="user.otherServices"
 									ng-minlength="4" ng-maxlength="50" maxlength="50"
 									data-error="S&oacute;lo letras, m&aacute;ximo 50 caracteres">
 								<div class="help-block with-errors"></div>
