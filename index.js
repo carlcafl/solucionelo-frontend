@@ -9,6 +9,7 @@ app.use(function(req, res, next) {
     //res.setHeader("Content-Security-Policy", "default-src 'unsafe-inline' *; script-src 'unsafe-inline' *; connect-src 'unsafe-inline' *; img-src *; style-src 'unsafe-inline' *;");
     return next();
   });
+
 app.disable('x-powered-by');
 app.use(express.static(__dirname + '/public'));
 
