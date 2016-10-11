@@ -25,6 +25,9 @@ app.controller('RegistrationCtrl',function($scope, $http) {
 			referrer: null,
 			ipAddress: null,
 			offeredServices: [],
+			ARLAffiliated: null,
+			bankAccount: null,
+			age: null,
 			otherServices: null
 	};
 	$scope.acceptance = false;
@@ -51,10 +54,12 @@ app.controller('RegistrationCtrl',function($scope, $http) {
 		if ($scope.user.offeredServices.length==0 && $scope.user.otherServices==null) {
 			document.getElementById("servicesValidation").innerHTML="Debes seleccionar al menos una profesi&oacute;n, o ingresar OTRA.";
 			return;
-		} else {			
+		} else {
 			document.getElementById("servicesValidation").innerHTML="";
 			showLoading();
 			$scope.submitted = true;
+			$scope.user.ARLAffiliated = document.getElementById("ARLAffiliated").checked;
+			$scope.user.bankAccount = document.getElementById("bankAccount").checked;
 			var res = $http.post(backendURL + '/users',$scope.user);
 			res.success(function(data, status, headers, config) {	
 				//Evento de analytics
@@ -75,6 +80,9 @@ app.controller('RegistrationCtrl',function($scope, $http) {
 						mobileNumber: null,
 						email: null,
 						referrer: null,						
+						ARLAffiliated: null,
+						bankAccount: null,
+						age: null,
 						offeredServices: [],
 						otherServices: null
 				};
@@ -105,4 +113,9 @@ function showLoading() {
 
 function hideLoading() {
 	document.getElementById('loadingDiv').style.display = 'none';
+}
+
+function turnOnSwitch() {
+	$("[name='ARLAffiliated']").bootstrapSwitch();	
+	$("[name='bankAccount']").bootstrapSwitch();
 }

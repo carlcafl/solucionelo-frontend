@@ -16,6 +16,7 @@
 
 <!-- Bootstrap Core CSS -->
 <link href="assets/css/bootstrap.css" rel="stylesheet">
+<link href="assets/css/bootstrap-switch.min.css" rel="stylesheet">
 
 <!-- Theme CSS -->
 <link href="assets/css/freelancer.css" rel="stylesheet">
@@ -34,6 +35,7 @@
 
 <!-- Bootstrap Core JavaScript -->
 <script src="assets/libs/bootstrap.min.js"></script>
+<script src="assets/libs/bootstrap-switch.min.js"></script>
 
 <!-- Plugin JavaScript -->
 <script
@@ -69,12 +71,13 @@
 
 	ga('create', 'UA-80373818-1', 'auto');
 	ga('send', 'pageview');
+	
 </script>
 
 </head>
 
 <body id="page-top" class="index" ng-controller="RegistrationCtrl"
-	data-spy="scroll" data-target=".navbar-fixed-top">	
+	data-spy="scroll" data-target=".navbar-fixed-top" onload="turnOnSwitch();">
 <div id="loadingDiv">
     <div id="loader">ENVIANDO...</div>
 </div>
@@ -265,6 +268,16 @@
 						</div>
 						<div class="row control-group">
 							<div class="form-group col-xs-12 controls">
+								<label>Edad</label> <input type="tel"
+									class="form-control input-lg" pattern="^[0-9]{1,}$"
+									placeholder="Edad" id="age" ng-model="user.age"
+									required ng-minlength="1" ng-maxlength="2" maxlength="2"
+									data-error="S&oacute;lo n&uacute;meros, m&aacute;ximo 2 d&iacute;gitos">
+								<div class="help-block with-errors"></div>
+							</div>
+						</div>
+						<div class="row control-group">
+							<div class="form-group col-xs-12 controls">
 								<label>Tel&eacute;fono</label> <input type="tel"
 									class="form-control input-lg" pattern="^[0-9]{1,}$"
 									placeholder="Tel&eacute;fono" id="phone"
@@ -295,9 +308,29 @@
 						</div>
 						<div class="row control-group">
 							<div class="form-group col-xs-12 controls">
-								<label>¿Qui&eacute;n te refiri&oacute;?</label> <input
+								<label>¿Estás afiliado a alguna ARL?</label> <input type="checkbox"
+									class="form-control input-lg" placeholder="ARL" id="ARLAffiliated" name="ARLAffiliated"
+									data-on-text="S&Iacute;" data-off-text="NO"
+									value="SSS"
+									ng-model="user.ARLAffiliated">
+								<div class="help-block with-errors"></div>
+							</div>
+						</div>
+						<div class="row control-group">
+							<div class="form-group col-xs-12 controls">
+								<label>¿Tiene cuenta bancaria?</label> <input type="checkbox"
+									class="form-control input-lg" placeholder="Cuenta bancaria" id="bankAccount" name="bankAccount"
+									data-on-text="S&Iacute;" data-off-text="NO"
+									value="SSS"
+									ng-model="user.bankAccount">
+								<div class="help-block with-errors"></div>
+							</div>
+						</div>
+						<div class="row control-group">
+							<div class="form-group col-xs-12 controls">
+								<label>¿C&oacute;mo te enteraste de nosotros?</label> <input
 									type="text" class="form-control input-lg"
-									placeholder="¿Qui&eacute;n te refiri&oacute;?" id="referrer"
+									placeholder="¿C&oacute;mo te enteraste de nosotros?" id="referrer"
 									ng-model="user.referrer" ng-minlength="4"
 									ng-maxlength="50" maxlength="50"
 									data-error="S&oacute;lo letras, m&aacute;ximo 50 caracteres">
