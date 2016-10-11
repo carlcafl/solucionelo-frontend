@@ -60,7 +60,13 @@ app.controller('RegistrationCtrl',function($scope, $http) {
 			$scope.submitted = true;
 			$scope.user.ARLAffiliated = document.getElementById("ARLAffiliated").checked;
 			$scope.user.bankAccount = document.getElementById("bankAccount").checked;
-			var res = $http.post(backendURL + '/users',headers: {'Access-Control-Allow-Origin': '*'},$scope.user);
+			
+			var httpConfig = {
+	                headers : {
+	                    'Access-Control-Allow-Origin': '*'
+	                }
+	            }
+			var res = $http.post(backendURL + '/users',$scope.user, httpConfig);
 			res.success(function(data, status, headers, config) {	
 				//Evento de analytics
 				ga('send', {
