@@ -25,7 +25,7 @@ app.controller('RegistrationCtrl',function($scope, $http) {
 			referrer: null,
 			ipAddress: null,
 			offeredServices: [],
-			ARLAffiliated: null,
+			arlAffiliated: null,
 			bankAccount: null,
 			age: null,
 			otherServices: null
@@ -58,7 +58,7 @@ app.controller('RegistrationCtrl',function($scope, $http) {
 			document.getElementById("servicesValidation").innerHTML="";
 			showLoading();
 			$scope.submitted = true;
-			$scope.user.ARLAffiliated = document.getElementById("ARLAffiliated").checked;
+			$scope.user.arlAffiliated = document.getElementById("arlAffiliated").checked;
 			$scope.user.bankAccount = document.getElementById("bankAccount").checked;
 			
 			/*var httpConfig = {
@@ -87,7 +87,7 @@ app.controller('RegistrationCtrl',function($scope, $http) {
 						mobileNumber: null,
 						email: null,
 						referrer: null,						
-						ARLAffiliated: null,
+						arlAffiliated: null,
 						bankAccount: null,
 						age: null,
 						offeredServices: [],
@@ -123,6 +123,6 @@ function hideLoading() {
 }
 
 function turnOnSwitch() {
-	$("[name='ARLAffiliated']").bootstrapSwitch();	
+	$("[name='arlAffiliated']").bootstrapSwitch();	
 	$("[name='bankAccount']").bootstrapSwitch();
 }
